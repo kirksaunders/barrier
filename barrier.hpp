@@ -34,11 +34,12 @@ class Barrier {
     void wait() {
         std::unique_lock<std::mutex> lock(mut); // acquire lock
         std::size_t inst = instance; // store current instance for comparison
-                                    // in predicate
+                                     // in predicate
 
         if (++wait_count == num_threads) { // all threads reached barrier
             wait_count = 0; // reset wait_count
-            instance++; // increment instance for next use of barrier
+            instance++; // increment instance for next use of barrier and to
+                        // pass condition variable predicate
             cv.notify_all();
         } else { // not all threads have reached barrier
             cv.wait(lock, [this, &inst]() { return instance != inst; });

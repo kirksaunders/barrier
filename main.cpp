@@ -1,3 +1,7 @@
+// Author: Kirk Saunders (ks825016@ohio.edu)
+// Description: Usage demo for Barrier class.
+// Date: 2/17/2020
+
 #include <iostream>
 #include <vector>
 
