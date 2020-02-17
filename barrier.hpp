@@ -15,8 +15,11 @@ class Barrier {
  public:
     // Construct barrier for use with num threads.
     Barrier(std::size_t num)
-        : num_threads(num), wait_count(0), instance(0),
-          mut(), cv()
+        : num_threads(num),
+          wait_count(0),
+          instance(0),
+          mut(),
+          cv()
     {
         if (num == 0) {
             throw std::invalid_argument("Barrier thread count cannot be 0");
